@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insulin NPH - Comprehensive Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #fbbc05;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --danger: #ea4335;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-right: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #eaeaea;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 12px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(26, 115, 232, 0.1), rgba(52, 168, 83, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        th {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-align: left;
+            padding: 1rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .pill {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--accent);
+            color: #333;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+            font-weight: 600;
+        }
+        
+        .references {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        
+        .references h2 {
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .ref-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .ref-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .ref-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a1a2e;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .info-box {
+            background: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .warning {
+            background: #fff8e6;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .warning h4 {
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+        
+        .warning h4 i {
+            margin-right: 10px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .nav-btn {
+            padding: 0.7rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-syringe"></i>
+            </div>
+            <div>
+                <h1>Insulin NPH (Neutral Protamine Hagedorn)</h1>
+                <p class="subtitle">A comprehensive guide to pharmacology, dosing, mechanism, and clinical use</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="section-nav">
+            <button class="nav-btn" onclick="scrollToSection('generic')">Generic Info</button>
+            <button class="nav-btn" onclick="scrollToSection('chemistry')">Chemistry</button>
+            <button class="nav-btn" onclick="scrollToSection('pharmacokinetics')">Pharmacokinetics</button>
+            <button class="nav-btn" onclick="scrollToSection('indications')">Indications</button>
+            <button class="nav-btn" onclick="scrollToSection('mechanism')">Mechanism</button>
+            <button class="nav-btn" onclick="scrollToSection('storage')">Storage</button>
+            <button class="nav-btn" onclick="scrollToSection('pakistan')">Pakistan Formulations</button>
+            
+<button class="nav-btn" onclick="scrollToSection('side-effects')">Side Effects</button>
+<button class="nav-btn" onclick="scrollToSection('time-curve')">Time-Action Curve</button>
+
+            <button class="nav-btn" onclick="scrollToSection('references')">References</button>
+        </div>
+        
+        <div class="card" id="generic">
+            <h2><i class="fas fa-info-circle"></i> Generic Information</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>Generic Name</h4>
+                    <p>Insulin NPH (Neutral Protamine Hagedorn) or isophane insulin</p>
+                </div>
+                <div class="info-box">
+                    <h4>Brand Names</h4>
+                    <p>Humulin N (Eli Lilly), Novolin N (Novo Nordisk), Insulatard (Sanofi), Gensulin N</p>
+                </div>
+                <div class="info-box">
+                    <h4>Classification</h4>
+                    <p>Intermediate-acting insulin (duration: 14–24 hours)</p>
+                </div>
+                <div class="info-box">
+                    <h4>Regulatory Status</h4>
+                    <p>WHO Essential Medicine, Prescription-only in the US/EU</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="chemistry">
+            <h2><i class="fas fa-flask"></i> Chemistry</h2>
+            <p>Insulin NPH is a suspension of recombinant human insulin complexed with protamine and zinc at neutral pH (7.0–7.5).</p>
+            
+            <div class="highlight">
+                <h3>Key Chemical Properties</h3>
+                <ul>
+                    <li><strong>Protamine source:</strong> Basic protein derived from salmon sperm</li>
+                    <li><strong>Appearance:</strong> Cloudy suspension due to crystalline microstructure</li>
+                    <li><strong>Formulation ratio:</strong> Protamine to insulin ratio of 1:5–1:10 to delay absorption</li>
+                    <li><strong>Preparation:</strong> Requires thorough resuspension before administration</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h4><i class="fas fa-exclamation-triangle"></i> Important Note</h4>
+                <p>NPH insulin should never be administered intravenously due to the risk of severe adverse reactions from the protamine component.</p>
+            </div>
+        </div>
+        
+        <div class="card" id="pharmacokinetics">
+            <h2><i class="fas fa-chart-line"></i> Pharmacokinetics (LADME)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                        <th>Influencing Factors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Liberation</strong></td>
+                        <td>Slow dissolution of insulin-protamine-zinc crystals at subcutaneous site</td>
+                        <td>Injection technique, tissue characteristics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Absorption</strong></td>
+                        <td>Onset: 1–3 hours; Peak: 4–8 hours; Duration: 14–24 hours</td>
+                        <td>Injection site, exercise, resuspension technique</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Distribution</strong></td>
+                        <td>Rapid extracellular distribution; does not cross placenta</td>
+                        <td>Body composition, circulatory status</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metabolism</strong></td>
+                        <td>Primarily hepatic (60–80%), also renal and muscular</td>
+                        <td>Liver and kidney function</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Excretion</strong></td>
+                        <td>Renal (30–80% as metabolites)</td>
+                        <td>Renal function, glomerular filtration rate</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <h3>Clinical Significance</h3>
+                <p>Improper resuspension of NPH insulin before injection can increase pharmacokinetic variability by up to 23% (measured by AUC). This is why it's essential to roll the vial or pen between hands until the suspension appears uniformly cloudy.</p>
+            </div>
+        </div>
+        
+        <div class="card" id="indications">
+            <h2><i class="fas fa-prescription-bottle-medical"></i> Indications and Dosing</h2>
+            
+            <h3>Approved Uses</h3>
+            <ul>
+                <li>Type 1 diabetes (as basal insulin component)</li>
+                <li>Type 2 diabetes (when oral hypoglycemic agents fail to achieve glycemic control)</li>
+                <li>Gestational diabetes mellitus (when insulin therapy is required)</li>
+            </ul>
+            
+            <h3>Dosing Guidelines</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Population</th>
+                        <th>Dosing</th>
+                        <th>Administration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Adults (Type 1)</strong></td>
+                        <td>0.4–1.0 units/kg/day, typically split twice daily</td>
+                        <td>Inject subcutaneously 15 mins pre-meal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adults (Type 2)</strong></td>
+                        <td>Start at 0.2 units/kg/day, titrate based on response</td>
+                        <td>Inject subcutaneously, usually with breakfast and dinner</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Children (≥12 years)</strong></td>
+                        <td>0.5–1.0 units/kg/day</td>
+                        <td>Adjust based on growth, activity, and dietary patterns</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <h3>Typical Dosing Schedule</h3>
+                <p>For twice-daily administration:</p>
+                <ul>
+                    <li><strong>Morning dose:</strong> 2/3 of total daily dose (with ratio of 1:2 rapid-acting insulin to NPH)</li>
+                    <li><strong>Evening dose:</strong> 1/3 of total daily dose (with ratio of 1:1 rapid-acting insulin to NPH)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card" id="mechanism">
+            <h2><i class="fas fa-cogs"></i> Mechanism of Action</h2>
+            
+            <h3>Glucose Regulation</h3>
+            <p>Insulin NPH binds to insulin receptors on target cells, activating a signaling cascade that promotes GLUT4 translocation to the cell membrane, facilitating cellular glucose uptake.</p>
+            
+            <h3>Metabolic Effects</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>Liver</h4>
+                    <ul>
+                        <li>Inhibits gluconeogenesis and glycogenolysis</li>
+                        <li>Promotes glycogen synthesis</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4>Muscle</h4>
+                    <ul>
+                        <li>Stimulates glycogen synthesis</li>
+                        <li>Enhances protein synthesis</li>
+                        <li>Facilitates amino acid uptake</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4>Adipose Tissue</h4>
+                    <ul>
+                        <li>Enhances triglyceride storage</li>
+                        <li>Suppresses lipolysis</li>
+                        <li>Inhibits release of free fatty acids</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>Time-Action Profile</h3>
+                <p>The intermediate action profile of NPH insulin makes it suitable as a basal insulin, providing background insulin coverage between meals and overnight. Its peak effect typically occurs between 4-8 hours after administration, which requires careful meal planning to prevent hypoglycemia.</p>
+            </div>
+        </div>
+        
+        
+<div class="card" id="side-effects">
+    <h2><i class="fas fa-exclamation-circle"></i> Side Effects & Contraindications</h2>
+
+    <h3>Common Adverse Effects</h3>
+    <ul>
+        <li>Hypoglycemia (most frequent)</li>
+        <li>Weight gain</li>
+        <li>Injection site lipodystrophy or lipoatrophy</li>
+    </ul>
+
+    <h3>Rare / Serious Reactions</h3>
+    <ul>
+        <li>Systemic allergic reactions (urticaria, bronchospasm, hypotension)</li>
+        <li>Insulin edema syndrome</li>
+        <li>Antibody formation (can alter pharmacokinetics)</li>
+    </ul>
+
+    <h3>Contraindications</h3>
+    <ul>
+        <li>Known hypersensitivity to insulin NPH or protamine</li>
+        <li>Hypoglycemia (do not administer during episodes)</li>
+    </ul>
+
+    <div class="warning">
+        <h4><i class="fas fa-triangle-exclamation"></i> Clinical Tip</h4>
+        <p>To minimize lipodystrophy, rotate injection sites regularly. For patients with recurrent nocturnal hypoglycemia, consider switching to insulin glargine or detemir.</p>
+    </div>
+</div>
+
+<div class="card" id="time-curve">
+    <h2><i class="fas fa-chart-area"></i> Time-Action Curve</h2>
+    <p>This graph illustrates the pharmacodynamic profile of NPH insulin compared to other insulin types.</p>
+    <img src="https://www.pharmacologyweekly.com/wp-content/uploads/2018/11/Insulin-action-profile-chart.jpg" alt="Insulin Time-Action Profile" style="width:100%; border-radius: 12px; margin-top: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+</div>
+
+<div class="card" id="storage">
+            <h2><i class="fas fa-temperature-low"></i> Stability and Storage</h2>
+            
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>Unopened Vials/Pens</h4>
+                    <ul>
+                        <li>Refrigerate at 2–8°C (36–46°F)</li>
+                        <li>Keep in original packaging</li>
+                        <li>Stable until expiration date</li>
+                        <li>Avoid freezing</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4>In-Use Vials/Pens</h4>
+                    <ul>
+                        <li>Stable at 15–30°C (59–86°F) for 28 days</li>
+                        <li>Do not refrigerate after opening</li>
+                        <li>Keep away from direct sunlight</li>
+                        <li>Do not store with needle attached</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <h4><i class="fas fa-exclamation-triangle"></i> Emergency Handling</h4>
+                <p>If exposed to temperatures >86°F (30°C), the insulin may be used temporarily but blood glucose should be monitored closely and the insulin replaced as soon as possible. Do not use if frozen, discolored, or containing particles.</p>
+            </div>
+        </div>
+        
+        <div class="card" id="pakistan">
+            <h2><i class="fas fa-map-marker-alt"></i> Common Formulations in Pakistan</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Formulation Type</th>
+                        <th>Examples</th>
+                        <th>Availability</th>
+                        <th>Affordability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Human Insulin (NPH)</strong></td>
+                        <td>Humulin N, Novolin N</td>
+                        <td>90% (private); 50% (public)</td>
+                        <td>1.38 days' wages/month</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insulin Analogs</strong></td>
+                        <td>Insulatard</td>
+                        <td>62.5% (private)</td>
+                        <td>5.06 days' wages/month</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biosimilars</strong></td>
+                        <td>Gan & Lee glargine (approved 2022)</td>
+                        <td>Emerging</td>
+                        <td>~1.0 day's wages/month (estimated)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <h3>Market Challenges in Pakistan</h3>
+                <ul>
+                    <li><strong>High cost:</strong> Insulin analogs cost 3-4 times more than human insulin</li>
+                    <li><strong>Supply chain gaps:</strong> Particularly in rural areas and public sector facilities</li>
+                    <li><strong>Import dependence:</strong> 87.5% of market dominated by multinational brands</li>
+                    <li><strong>Public sector availability:</strong> Less than 50% compared to WHO target of 80%</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h4>Regulatory Developments</h4>
+                <p>The Drug Regulatory Authority of Pakistan (DRAP) is promoting biosimilars and local manufacturing to improve accessibility. The 2022 approval of Gan & Lee's insulin glargine represents a step toward more affordable alternatives.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="references" id="references">
+        <div class="container">
+            <h2><i class="fas fa-book"></i> References</h2>
+            <ul class="ref-list">
+                <li>World Health Organization. (2023). WHO Model List of Essential Medicines - 23rd List.</li>
+                <li>DrugBank Online. (2023). Insulin Human - DrugBank Accession Number DB00030.</li>
+                <li>Kalra S, et al. (2020). Insulin Storage: A Critical Reappraisal. Journal of Diabetes Science and Technology, 14(2), 371-378.</li>
+                <li>Feingold KR, et al. (2023). Insulin - Pharmacology, Therapeutic Regimens and Principles of Intensive Insulin Therapy. Endotext [Internet].</li>
+                <li>American Diabetes Association. (2023). Standards of Medical Care in Diabetes. Diabetes Care, 46(Supplement 1).</li>
+                <li>Bardal SK, et al. (2011). Applied Pharmacology. Elsevier Health Sciences.</li>
+                <li>Owens DR. (2022). The Evolution of Insulin Formulations and Delivery Devices: Reflections and Perspectives. Acta Diabetologica, 59(1), 1-10.</li>
+                <li>Kaarsholm NC, et al. (2007). Structural Characterization of Insulin NPH Formulations. European Journal of Pharmaceutical Sciences, 30(5), 421-429.</li>
+                <li>Pakistan Endocrine Society. (2022). Clinical Practice Guidelines for Diabetes Management in Pakistan.</li>
+                <li>Drug Regulatory Authority of Pakistan. (2022). National List of Essential Medicines.</li>
+                <li>International Diabetes Federation. (2021). IDF Diabetes Atlas - 10th Edition.</li>
+                <li>RxList. (2023). Insulin NPH Side Effects Drug Center.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>This educational resource is for academic purposes only. Always consult healthcare professionals for medical advice.</p>
+            <p>Designed for Pharmacology Assignment | © 2023 Medical Information Portal</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Add active class to nav buttons when section is in view
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.card, .references');
+            const navBtns = document.querySelectorAll('.nav-btn');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(currentSection)) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+        
+        // Add hover effect to cards on mobile
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('hover');
+            });
+        });
+    </script>
+</body>
+</html>
